@@ -71,6 +71,18 @@
     });
   };
 
+  // Activating Isotope Filter Navigation
+  $('#filterNav').on('click', 'li', function () {
+    // remove active previous
+    $('#filterNav').find('li').removeClass('active');
+    // Add active class
+    $(this).addClass('active');
+    var selector = $(this).attr('data-filter');
+    $container.isotope({
+      filter: selector
+    });
+  });
+
   // Calling Isotope
   isotope();
   $(window).smartresize(isotope);
